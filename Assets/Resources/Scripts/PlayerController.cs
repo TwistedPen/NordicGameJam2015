@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
 			Debug.Log("player jumped");
-			
+			Audio.Play(SoundEvent.Jump);
 			grounded = false;
 			
 		}
@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("player jumped");
 			
 			grounded = false;
+			Audio.Play(SoundEvent.Jump);
 			
 		}
 	}

@@ -108,7 +108,7 @@ public class CameraViewControl : MonoBehaviour {
         camera.transform.LookAt(currentFocalPoint, newUp);
     }
 
-    void Swap()
+    public void Swap()
     {
         if (!isMoving && currentPos != CameraPositions.gameOverPosition)
         {
@@ -127,7 +127,7 @@ public class CameraViewControl : MonoBehaviour {
         }
     }
 
-    void ReturnToOrigin()
+    public void ReturnToOrigin()
     {
         if (!isMoving && currentPos != CameraPositions.originalPos)
         {
@@ -140,7 +140,7 @@ public class CameraViewControl : MonoBehaviour {
         }
     }
 
-    void GameOver()
+    public void GameOver()
     {
         if (!isMoving && currentPos != CameraPositions.gameOverPosition)
         {

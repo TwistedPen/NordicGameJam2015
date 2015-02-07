@@ -4,10 +4,12 @@ using System.Collections;
 public class ObstacleController : MonoBehaviour {
 
 	public float speed = 3f;
+	GameObject player;
+	bool hasPassedPlayer = false;
 
 	// Use this for initialization
 	void Start () {
-	
+		player = GameObject.Find("Player");
 	}
 
 	void FixedUpdate()
@@ -19,6 +21,12 @@ public class ObstacleController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if(transform.position.z < player.transform.position.z && !hasPassedPlayer)
+		{
+			player.SendMessage("AddScore");
+			hasPassedPlayer = true;
+		}
 	
 	}
 

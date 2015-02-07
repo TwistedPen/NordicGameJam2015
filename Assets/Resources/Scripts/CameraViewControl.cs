@@ -50,7 +50,6 @@ public class CameraViewControl : MonoBehaviour {
 	void Start () {
         startPos = camera.transform.position;
         swapCameraUp = swapCamera.transform.up;
-        Debug.Log(swapCameraUp);
         swapCameraPos = swapCamera.transform.position;
         swapFocalPoint = swapCamera.GetComponent<CameraViewControl>().focalPoint;
         

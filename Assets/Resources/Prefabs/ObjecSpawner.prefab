@@ -51,6 +51,14 @@ MonoBehaviour:
   - {fileID: 103144, guid: 941a95bd6f4265b4686e456bf72545f7, type: 2}
   - {fileID: 169262, guid: 43e750045624d864b9e2703f8c34fa03, type: 2}
   - {fileID: 120958, guid: 1fa4c7c4408dcdc48b02a1602452b8d6, type: 2}
+  - {fileID: 112608, guid: a3baeff9e6d4af544b193a8e4bbe48fb, type: 2}
+  - {fileID: 104806, guid: d1af977bda9c9994fa3ebf1d7f138d1a, type: 2}
+  - {fileID: 189736, guid: 487dfcdb5c89d3944bed27c8fb6ef096, type: 2}
+  - {fileID: 166492, guid: 7cb0ce879182f994490f8d80ba7cbd78, type: 2}
+  - {fileID: 100336, guid: 57dc40ca043ad1a4c81baa87dff98a68, type: 2}
+  - {fileID: 166470, guid: daa93524ff435e44b97e90aeca31f3d7, type: 2}
+  - {fileID: 104874, guid: 39c40778472308d4999a99bfa2244784, type: 2}
+  - {fileID: 110916, guid: 339d3019bebd9474c8a3e92b07960406, type: 2}
   spawnMin: 1
   spawnMax: 2
 --- !u!1001 &100100000

@@ -266,8 +266,8 @@ Transform:
   m_PrefabInternal: {fileID: 988999846}
   m_GameObject: {fileID: 195244228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.230000004, y: -1, z: 4.55999994}
-  m_LocalScale: {x: 7, y: 1, z: 40}
+  m_LocalPosition: {x: 0, y: -1, z: 4.55999994}
+  m_LocalScale: {x: 5, y: 1, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1525,7 +1525,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 497374, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.230000004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 497374, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1557,7 +1557,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497374, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
       propertyPath: m_LocalScale.x
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
@@ -2683,6 +2683,10 @@ Prefab:
       propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 671834876}
+    - target: {fileID: 11448296, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
   m_RootGameObject: {fileID: 485715243}
@@ -4275,7 +4279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEvent: 4
   audioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 113b4fee497514403af0c96b40ca9620, type: 3}
   minRandomPitch: .800000012
   maxRandomPitch: 1.39999998
 --- !u!4 &2077819913
@@ -4301,7 +4305,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0

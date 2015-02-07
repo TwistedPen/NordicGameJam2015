@@ -59,6 +59,8 @@ class EdgeDetectEffectNormals extends PostEffectsBase {
 	
 	@ImageEffectOpaque
 	function OnRenderImage (source : RenderTexture, destination : RenderTexture) {	
+	    destination.DiscardContents();
+	    source.DiscardContents();
 		if (CheckResources () == false) {
 			Graphics.Blit (source, destination);
 			return;
@@ -71,8 +73,10 @@ class EdgeDetectEffectNormals extends PostEffectsBase {
 		edgeDetectMaterial.SetVector ("_BgColor", edgesOnlyBgColor);	
 		edgeDetectMaterial.SetFloat ("_Exponent", edgeExp);
 		edgeDetectMaterial.SetFloat ("_Threshold", lumThreshhold);
-		
+	
 		Graphics.Blit (source, destination, edgeDetectMaterial, mode);
+		destination.DiscardContents();
+		source.DiscardContents();
 	}
 }
 

@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour {
 	float startTime;
 	float journeyLength;
 	bool changingLane = false;
+
+	//for gameover
+	bool canControl = true;
+	bool panOut = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -29,35 +33,37 @@ public class PlayerController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-
-		//Jump if jump button is pressed and character is on the ground
-		if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
+		if(canControl)
 		{
-			//add the upward force to make player jump
-			Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
-			Jump();
-
-		}
-		if(Input.GetKeyDown(KeyCode.LeftArrow))
-		{
-			MoveLeft();
-		}
-
-		if(Input.GetKeyDown(KeyCode.RightArrow))
-		{
-			MoveRight();
-		}
-
-		//lane swap lerp
-		if(changingLane)
-		{
-			float distCovered = (Time.time - startTime) * speed;
-			float fracJourney = distCovered / journeyLength;
-			transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
-
-			if(transform.position == endMarker)
+			//Jump if jump button is pressed and character is on the ground
+			if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 			{
-				changingLane = false;
+				//add the upward force to make player jump
+				Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
+				Jump();
+
+			}
+			if(Input.GetKeyDown(KeyCode.LeftArrow))
+			{
+				MoveLeft();
+			}
+
+			if(Input.GetKeyDown(KeyCode.RightArrow))
+			{
+				MoveRight();
+			}
+
+			//lane swap lerp
+			if(changingLane)
+			{
+				float distCovered = (Time.time - startTime) * speed;
+				float fracJourney = distCovered / journeyLength;
+				transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
+
+				if(transform.position == endMarker)
+				{
+					changingLane = false;
+				}
 			}
 		}
 		
@@ -75,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider colInfo)
 	{
-		if(colInfo.gameObject.tag == "Obstacle")
+		if(colInfo.gameObject.tag.Contains("Obstacle"))
 		{
 			StartCoroutine(PanCameras());
 
@@ -97,12 +103,40 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void ChangeControlState()
+	{
+		if(canControl)
+			canControl = false;
+		else
+			canControl = true;
+
+	}
 	IEnumerator PanCameras()
 	{
-		//GameObject.Find("Camera_Portrait_left").SendMessage("
-		yield return new WaitForSeconds(4f);
+		ChangeControlState();
+		GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+		for (int i = 0; i< obstacles.Length; i++)
+		{
+			obstacles[i].SendMessage("ChangeObjectState");
+		}
+		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
 
-		GameObject.Find("UI").SendMessage("ShowMenu");
+		if(panOut)
+		{
+			GameObject.Find("Camera_Portrait_left").SendMessage("GameOver");
+			GameObject.Find("Camera_Portrait_top").SendMessage("GameOver");
+
+			yield return new WaitForSeconds(5f);
+			
+			GameObject.Find("UI").SendMessage("ShowMenu");
+		}
+//		if we can continue to work
+//		else
+//		{
+//			GameObject.Find("Camera_Portrait_left").SendMessage("ReturnToOrigin");
+//			GameObject.Find("Camera_Portrait_top").SendMessage("ReturnToOrigin");
+//		}
+
 	}
 
 	public void AddScore()

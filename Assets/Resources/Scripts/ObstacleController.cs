@@ -6,6 +6,7 @@ public class ObstacleController : MonoBehaviour {
 	public float speed = 3f;
 	GameObject player;
 	bool hasPassedPlayer = false;
+	bool canMove = true;
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +15,10 @@ public class ObstacleController : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-
-		rigidbody.velocity = new Vector3(0f, 0f, -speed);
+		if(canMove)
+			rigidbody.velocity = new Vector3(0f, 0f, -speed);
+		else
+			rigidbody.velocity = new Vector3(0f, 0f, 0f);
 		
 	}
 
@@ -37,5 +40,15 @@ public class ObstacleController : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	public void ChangeObjectState()
+	{
+		if(canMove)
+			canMove = false;
+		else
+			canMove = true;
+
+		Debug.Log("Obstacle State: " + canMove);
 	}
 }

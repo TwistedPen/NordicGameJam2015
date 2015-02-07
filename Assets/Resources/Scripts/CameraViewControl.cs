@@ -5,7 +5,7 @@ using System.Collections;
  * moves the camera to show either a isometric view of a 2D view
  */
 
-public class CameraViewControlTop : MonoBehaviour {
+public class CameraViewControl : MonoBehaviour {
 
     public Camera camera;
     public Vector3 endPos;

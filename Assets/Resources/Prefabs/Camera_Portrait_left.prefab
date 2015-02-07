@@ -12,7 +12,7 @@ GameObject:
   - 92: {fileID: 9221212}
   - 124: {fileID: 12421212}
   - 81: {fileID: 8121212}
-  - 114: {fileID: 11472270}
+  - 114: {fileID: 11494852}
   m_Layer: 0
   m_Name: Camera_Portrait_left
   m_TagString: MainCamera
@@ -41,7 +41,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -78,7 +78,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121212}
   m_Enabled: 1
---- !u!114 &11472270
+--- !u!114 &11494852
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,12 +86,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 121212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3e2c42fc7320f4499d08b244fd8c46, type: 3}
+  m_Script: {fileID: 11500000, guid: e42441208de1c0e43b559624d58df26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2021212}
   endPos: {x: 10, y: 10, z: -10}
-  cameraUp: {x: 0, y: 1, z: 0}
+  cameraUpStart: {x: 0, y: 1, z: 0}
+  cameraUpEnd: {x: 0, y: 1, z: 0}
   speed: 10
 --- !u!124 &12421212
 Behaviour:

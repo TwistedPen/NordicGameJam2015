@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 
 	public bool grounded = false;
 	public Transform groundCheck;
-	float groundRadius = 1f;
+	float groundRadius = 0.1f;
 	public LayerMask WhatIsGround;//for checking if it something player can stand on
 
 	// Use this for initialization
@@ -19,31 +19,54 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate()
 	{
 		//check if it hit something			where circle is		its radius		things it collide with
-		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
-
-		if(grounded)
-		{
-			Debug.Log("player can jump");
-		}
-				
-		//move characted based on direction input and max speed
-		float move = Input.GetAxis("Horizontal");
-		
-		//rigidbody.velocity = new Vector3(0f, 0f, maxSpeed);
-		rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y, maxSpeed);
-
+		//grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-	
+
+		
+
 		//Jump if jump button is pressed and character is on the ground
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(grounded && Input.GetKeyDown(KeyCode.Space))
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
 			Debug.Log("player jumped");
+			
+			grounded = false;
+			
+		}
 
+	}
+
+	void OnCollisionEnter(Collision colInfo)
+	{
+
+		//Debug.Log("Player hit: " + colInfo.gameObject.name);
+
+		if(colInfo.gameObject.name == "Floor")
+			grounded = true;
+
+	}
+
+	void OnTriggerEnter(Collider colInfo)
+	{
+		if(colInfo.gameObject.tag == "Obstacle")
+		{
+			Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
+		}
+	}
+
+	public void Jump()
+	{
+		//Jump if jump button is pressed and character is on the ground
+		if(grounded && Input.GetKeyDown(KeyCode.Space))
+		{
+			//add the upward force to make player jump
+			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
+			Debug.Log("player jumped");
+			
 			grounded = false;
 			
 		}

@@ -12,6 +12,6 @@ public class GroundCheckScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		transform.position = new Vector3(ball.position.x,ball.position.y-1f,ball.position.z);
+		transform.position = new Vector3(ball.position.x,ball.position.y-0.5f,ball.position.z);
 	}
 }

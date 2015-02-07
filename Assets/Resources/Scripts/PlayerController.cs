@@ -70,11 +70,14 @@ public class PlayerController : MonoBehaviour {
 		{
 			Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
 
+			//Update UI
 			numError++;
 			GameObject.Find("Number").GetComponent<Text>().text = numError.ToString();
 
 			Audio.Play(SoundEvent.Collide);
 
+			//Show Menu
+			GameObject.Find("_GM").SendMessage("ShowMenu");
 		}
 	}
 

@@ -81,12 +81,21 @@ public class PlayerController : MonoBehaviour {
 	public void MoveRight()
 	{
 		if(transform.position.x < 1f)
+		{
+			Audio.Play(SoundEvent.Move);
+
 			transform.Translate(new Vector3 (1.5f,0f, 0f));
+		}
+			
 	}
 	public void MoveLeft()
 	{
 		if(transform.position.x > -1f)
+		{
+			Audio.Play(SoundEvent.Move);
+
 			transform.Translate(new Vector3 (-1.5f,0f, 0f));
+		}
 	}
 	public void Jump()
 	{

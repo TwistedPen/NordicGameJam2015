@@ -439,9 +439,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEvent: 3
-  audioClips: []
-  minRandomPitch: 0
-  maxRandomPitch: 0
+  audioClips:
+  - {fileID: 8300000, guid: 383a78e026804444a82c087ce3323162, type: 3}
+  - {fileID: 8300000, guid: bae5809cfb10644ef8b7dac613868ea4, type: 3}
+  - {fileID: 8300000, guid: e5af075d708df49ed99d85be1b8bb4f9, type: 3}
+  minRandomPitch: .800000012
+  maxRandomPitch: 1.29999995
 --- !u!114 &11490962
 MonoBehaviour:
   m_ObjectHideFlags: 1

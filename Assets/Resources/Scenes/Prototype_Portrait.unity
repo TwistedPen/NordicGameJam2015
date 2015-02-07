@@ -87,7 +87,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 421212, guid: 3e429982c4a8d7746a864e8a6db24ed6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .449999988
+      value: 1.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 421212, guid: 3e429982c4a8d7746a864e8a6db24ed6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -772,7 +772,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22435994, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -535
+      value: -561
       objectReference: {fileID: 0}
     - target: {fileID: 22435994, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -780,7 +780,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22436000, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -538
+      value: -562
       objectReference: {fileID: 0}
     - target: {fileID: 22436000, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  jumpForce: 30
+  jumpForce: 40
   grounded: 1
   groundCheck: {fileID: 1357918056}
   WhatIsGround:
@@ -1027,7 +1027,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -306, y: -535}
+  m_AnchoredPosition: {x: -306, y: -561}
   m_SizeDelta: {x: 92, y: 51}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &830680123
@@ -1431,7 +1431,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 292, y: -538}
+  m_AnchoredPosition: {x: 292, y: -562}
   m_SizeDelta: {x: 89, y: 56}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1341625826
@@ -1641,7 +1641,7 @@ Transform:
   m_PrefabInternal: {fileID: 29371606}
   m_GameObject: {fileID: 1484508865}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 4.28999996, y: .449999988, z: .769999981}
+  m_LocalPosition: {x: 4.28999996, y: 1.20000005, z: .769999981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1688,6 +1688,10 @@ Prefab:
     - target: {fileID: 461218, guid: 318db27706e6a8645b43abf76677c048, type: 2}
       propertyPath: m_LocalPosition.y
       value: -.50999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 11461216, guid: 318db27706e6a8645b43abf76677c048, type: 2}
+      propertyPath: jumpForce
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 318db27706e6a8645b43abf76677c048, type: 2}

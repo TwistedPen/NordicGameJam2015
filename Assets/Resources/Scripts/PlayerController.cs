@@ -60,8 +60,10 @@ public class PlayerController : MonoBehaviour {
 		//Debug.Log("Player hit: " + colInfo.gameObject.name);
 
 		if(colInfo.gameObject.name == "Floor")
+		{
+			Audio.Play(SoundEvent.Land);
 			grounded = true;
-
+		}
 	}
 
 	void OnTriggerEnter(Collider colInfo)

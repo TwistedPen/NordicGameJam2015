@@ -72,12 +72,17 @@ public class PlayerController : MonoBehaviour {
 
 			//Update UI
 			numError++;
-			GameObject.Find("Number").GetComponent<Text>().text = numError.ToString();
+			Text[] ErrorTexts = GameObject.Find("Text_Error").GetComponentsInChildren<Text>();
+			for (int i = 0 ; i < ErrorTexts.Length; i++)
+			{
+				if(ErrorTexts[i].gameObject.name == "Number")
+					ErrorTexts[i].text = numError.ToString();
+			}
 
 			Audio.Play(SoundEvent.Collide);
 
 			//Show Menu
-			GameObject.Find("_GM").SendMessage("ShowMenu");
+			GameObject.Find("UI").SendMessage("ShowMenu");
 		}
 	}
 

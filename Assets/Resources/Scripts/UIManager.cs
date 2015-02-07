@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour {
 	}
 	public void HideMenu()
 	{
-		Debug.Log("starting/resuming game");
+		//Debug.Log("starting/resuming game");
 		menu.transform.position = hidenPos;
 		Time.timeScale = 1;
 	}

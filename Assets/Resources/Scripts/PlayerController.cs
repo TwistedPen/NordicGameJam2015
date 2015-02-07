@@ -34,10 +34,8 @@ public class PlayerController : MonoBehaviour {
 		if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 		{
 			//add the upward force to make player jump
-			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
-			//Debug.Log("player jumped");
-			Audio.Play(SoundEvent.Jump);
-			grounded = false;
+			Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
+			Jump();
 
 		}
 		if(Input.GetKeyDown(KeyCode.LeftArrow))
@@ -79,6 +77,8 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(colInfo.gameObject.tag == "Obstacle")
 		{
+			GameObject.Find("UI").SendMessage("ShowMenu");
+			Time.timeScale = 0;
 			//Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
 
 			//Update UI
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 			Audio.Play(SoundEvent.Collide);
 
 			//Show Menu
-			GameObject.Find("UI").SendMessage("ShowMenu");
+
 		}
 	}
 

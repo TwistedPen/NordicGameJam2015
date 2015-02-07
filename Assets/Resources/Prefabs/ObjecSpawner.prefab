@@ -40,7 +40,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 168218, guid: 7f26583a3aa09fa4a863516853d4e174, type: 2}
+  - {fileID: 196880, guid: 62dc668cc7739734a8296ec5b6634a9a, type: 2}
+  - {fileID: 133958, guid: dad7ae8b0445910458725313d9edec0a, type: 2}
+  - {fileID: 130056, guid: 9c3516c27d6498c4abfa24cff9fe299d, type: 2}
+  - {fileID: 188206, guid: a354c3f71d8983e4591cb0f86ee2e25a, type: 2}
+  - {fileID: 138518, guid: e5df4d0007d54f34898303044b7b0b62, type: 2}
+  - {fileID: 111916, guid: fb522dfc71b6fba429446cf19434b6e0, type: 2}
+  - {fileID: 189854, guid: 467864351ab79c145941a251b20eaeb3, type: 2}
+  - {fileID: 179552, guid: c4919eb609fdd4a41bf8e2c2a5366fe9, type: 2}
+  - {fileID: 103144, guid: 941a95bd6f4265b4686e456bf72545f7, type: 2}
+  - {fileID: 169262, guid: 43e750045624d864b9e2703f8c34fa03, type: 2}
+  - {fileID: 120958, guid: 1fa4c7c4408dcdc48b02a1602452b8d6, type: 2}
   spawnMin: 1
   spawnMax: 2
 --- !u!1001 &100100000

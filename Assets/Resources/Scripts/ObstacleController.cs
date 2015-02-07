@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObstacleController : MonoBehaviour {
 
-	public float speed = 10f;
+	public float speed = 3f;
 
 	// Use this for initialization
 	void Start () {

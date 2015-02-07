@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour {
 	public Transform groundCheck;
 	float groundRadius = 0.1f;
 	public LayerMask WhatIsGround;//for checking if it something player can stand on
+
+	int numError = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -32,10 +35,21 @@ public class PlayerController : MonoBehaviour {
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
-			Debug.Log("player jumped");
-			
+			//Debug.Log("player jumped");
+			Audio.Play(SoundEvent.Jump);
 			grounded = false;
-			
+
+		}
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			//Audio.Play(SoundEvent.Jump);
+			MoveLeft();
+		}
+
+		if(Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			//Audio.Play(SoundEvent.Jump);
+			MoveRight();
 		}
 
 	}
@@ -55,6 +69,12 @@ public class PlayerController : MonoBehaviour {
 		if(colInfo.gameObject.tag == "Obstacle")
 		{
 			Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
+
+			numError++;
+			GameObject.Find("Number").GetComponent<Text>().text = numError.ToString();
+
+			Audio.Play(SoundEvent.Collide);
+
 		}
 	}
 
@@ -77,9 +97,9 @@ public class PlayerController : MonoBehaviour {
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
 			Debug.Log("player jumped");
-			
 			grounded = false;
-			
+			Audio.Play(SoundEvent.Jump);
+
 		}
 	}
 }

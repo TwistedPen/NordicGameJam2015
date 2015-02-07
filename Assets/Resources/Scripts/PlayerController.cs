@@ -58,10 +58,21 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void MoveRight()
+	{
+		if(transform.position.x < 1f)
+			transform.Translate(new Vector3 (1.5f,0f, 0f));
+	}
+	public void MoveLeft()
+	{
+		if(transform.position.x > -1f)
+			transform.Translate(new Vector3 (-1.5f,0f, 0f));
+	}
 	public void Jump()
 	{
+		Debug.Log("player jumped called" + grounded);
 		//Jump if jump button is pressed and character is on the ground
-		if(grounded && Input.GetKeyDown(KeyCode.Space))
+		if(grounded)
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));

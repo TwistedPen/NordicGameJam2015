@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask WhatIsGround;//for checking if it something player can stand on
 
 	int numError = 0;
+	int score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(colInfo.gameObject.tag == "Obstacle")
 		{
-			Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
+			//Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
 
 			//Update UI
 			numError++;
@@ -88,6 +89,19 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void AddScore()
+	{
+		//Debug.Log("player cleared an obstacle");
+
+		score++;
+		Text[] scoreTexts = GameObject.Find("Text_Score").GetComponentsInChildren<Text>();
+		for (int i = 0 ; i < scoreTexts.Length; i++)
+		{
+			if(scoreTexts[i].gameObject.name == "Number")
+				scoreTexts[i].text = score.ToString();
+		}
+	}
+	
 	public void MoveRight()
 	{
 		if(transform.position.x < 1f)
@@ -109,13 +123,13 @@ public class PlayerController : MonoBehaviour {
 	}
 	public void Jump()
 	{
-		Debug.Log("player jumped called" + grounded);
+		//Debug.Log("player jumped called" + grounded);
 		//Jump if jump button is pressed and character is on the ground
 		if(grounded && Time.timeScale == 1)
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
-			Debug.Log("player jumped");
+			//Debug.Log("player jumped");
 			grounded = false;
 			Audio.Play(SoundEvent.Jump);
 

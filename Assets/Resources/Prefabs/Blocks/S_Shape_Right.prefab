@@ -8,6 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403144}
+  - 114: {fileID: 11469640}
+  - 54: {fileID: 5439120}
   m_Layer: 0
   m_Name: S_Shape_Right
   m_TagString: Untagged
@@ -26,8 +28,6 @@ GameObject:
   - 33: {fileID: 3303146}
   - 65: {fileID: 6503146}
   - 23: {fileID: 2303146}
-  - 114: {fileID: 11403146}
-  - 54: {fileID: 5403146}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -46,8 +46,6 @@ GameObject:
   - 33: {fileID: 3303148}
   - 65: {fileID: 6503148}
   - 23: {fileID: 2303148}
-  - 114: {fileID: 11403148}
-  - 54: {fileID: 5403148}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -66,8 +64,6 @@ GameObject:
   - 33: {fileID: 3303150}
   - 65: {fileID: 6503150}
   - 23: {fileID: 2303150}
-  - 114: {fileID: 11403150}
-  - 54: {fileID: 5403150}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -86,8 +82,6 @@ GameObject:
   - 33: {fileID: 3303152}
   - 65: {fileID: 6503152}
   - 23: {fileID: 2303152}
-  - 114: {fileID: 11403152}
-  - 54: {fileID: 5403152}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -267,57 +261,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103152}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5403146
+--- !u!54 &5439120
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103146}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!54 &5403148
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103148}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!54 &5403150
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103150}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!54 &5403152
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103152}
+  m_GameObject: {fileID: 103144}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -375,54 +324,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11403146
+--- !u!114 &11469640
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103146}
+  m_GameObject: {fileID: 103144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &11403148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &11403150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &11403152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

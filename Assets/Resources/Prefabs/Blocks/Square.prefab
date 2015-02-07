@@ -11,8 +11,6 @@ GameObject:
   - 33: {fileID: 3320952}
   - 65: {fileID: 6520952}
   - 23: {fileID: 2320952}
-  - 114: {fileID: 11420952}
-  - 54: {fileID: 5420952}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -31,8 +29,6 @@ GameObject:
   - 33: {fileID: 3320954}
   - 65: {fileID: 6520954}
   - 23: {fileID: 2320954}
-  - 114: {fileID: 11420954}
-  - 54: {fileID: 5420954}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -51,8 +47,6 @@ GameObject:
   - 33: {fileID: 3320956}
   - 65: {fileID: 6520956}
   - 23: {fileID: 2320956}
-  - 114: {fileID: 11420956}
-  - 54: {fileID: 5420956}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -68,6 +62,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420958}
+  - 114: {fileID: 11469640}
+  - 54: {fileID: 5439120}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -86,8 +82,6 @@ GameObject:
   - 33: {fileID: 3320958}
   - 65: {fileID: 6520958}
   - 23: {fileID: 2320958}
-  - 114: {fileID: 11420958}
-  - 54: {fileID: 5420958}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Obstacle
@@ -138,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420960}
@@ -267,57 +261,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120960}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5420952
+--- !u!54 &5439120
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120952}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!54 &5420954
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120954}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!54 &5420956
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120956}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!54 &5420958
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120960}
+  m_GameObject: {fileID: 120958}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -375,54 +324,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11420952
+--- !u!114 &11469640
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120952}
+  m_GameObject: {fileID: 120958}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &11420954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &11420956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &11420958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9e0f6dc59a5964dbf88842c4bf86a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

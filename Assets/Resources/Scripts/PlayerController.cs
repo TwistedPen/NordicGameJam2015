@@ -35,13 +35,22 @@ public class PlayerController : MonoBehaviour {
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
-			Debug.Log("player jumped");
+			//Debug.Log("player jumped");
 			Audio.Play(SoundEvent.Jump);
 			grounded = false;
 
 		}
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			//Audio.Play(SoundEvent.Jump);
+			MoveLeft();
+		}
 
-		
+		if(Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			//Audio.Play(SoundEvent.Jump);
+			MoveRight();
+		}
 
 	}
 

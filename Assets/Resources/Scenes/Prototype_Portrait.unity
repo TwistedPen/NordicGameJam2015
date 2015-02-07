@@ -1353,6 +1353,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1027159609}
   - 114: {fileID: 1027159608}
+  - 82: {fileID: 1027159610}
   m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
@@ -1389,6 +1390,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1101932990}
   m_RootOrder: 1
+--- !u!82 &1027159610
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8260644, guid: 621677718cef0495aa2e861ee9682f04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1244481880}
+  m_GameObject: {fileID: 1027159607}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1032037058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,19 +2272,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 190144, guid: e5df4d0007d54f34898303044b7b0b62, type: 2}
-  - {fileID: 179300, guid: 95637bc84a1054346ab3e723c261d453, type: 2}
-  - {fileID: 183998, guid: c1b00d1be1ba1004da048b694f665a96, type: 2}
-  - {fileID: 183998, guid: d297462a02547f64a8849640b1d9cf7e, type: 2}
-  - {fileID: 158256, guid: 59f7a57fd91d0104c8c0c4a5697fc8b9, type: 2}
-  - {fileID: 158256, guid: a49239a8ffcea1242bd5c74c46665065, type: 2}
-  - {fileID: 100990, guid: 3967bc9086c09ec4491112d2e21af0ac, type: 2}
-  - {fileID: 100990, guid: 1d1281357f396df479b7240fffa28e25, type: 2}
-  - {fileID: 100990, guid: 543199d3c63b91549973488be1f05776, type: 2}
-  - {fileID: 100990, guid: 557183133361e7f43b6fdbd1e6ddcdba, type: 2}
-  - {fileID: 100990, guid: 5c6781126d2b0fa44b72f779b7d62738, type: 2}
-  - {fileID: 100990, guid: 569f24fd3982f314ab9cbe08751f7ca2, type: 2}
-  - {fileID: 100990, guid: a05a2a95538081d4393c1c27e55e338d, type: 2}
+  - {fileID: 196880, guid: 62dc668cc7739734a8296ec5b6634a9a, type: 2}
+  - {fileID: 133958, guid: dad7ae8b0445910458725313d9edec0a, type: 2}
+  - {fileID: 130056, guid: 9c3516c27d6498c4abfa24cff9fe299d, type: 2}
+  - {fileID: 188206, guid: a354c3f71d8983e4591cb0f86ee2e25a, type: 2}
+  - {fileID: 138518, guid: e5df4d0007d54f34898303044b7b0b62, type: 2}
+  - {fileID: 111916, guid: fb522dfc71b6fba429446cf19434b6e0, type: 2}
+  - {fileID: 189854, guid: 467864351ab79c145941a251b20eaeb3, type: 2}
+  - {fileID: 179552, guid: c4919eb609fdd4a41bf8e2c2a5366fe9, type: 2}
+  - {fileID: 103144, guid: 941a95bd6f4265b4686e456bf72545f7, type: 2}
+  - {fileID: 169262, guid: 43e750045624d864b9e2703f8c34fa03, type: 2}
+  - {fileID: 120958, guid: 1fa4c7c4408dcdc48b02a1602452b8d6, type: 2}
   spawnMin: 4
   spawnMax: 5
 --- !u!4 &1786544961

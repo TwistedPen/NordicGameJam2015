@@ -95,7 +95,7 @@ public class CameraViewControl : MonoBehaviour {
     // along with a start and end position and a start and end up vector for the camera
     void moveTo(float startTime, Vector3 startPosition, Vector3 endPosition, Vector3 cameraUpStart, Vector3 cameraUpEnd)
     {
-        if (camera.transform.position == endPosition)
+        if (camera.transform.position == endPosition && camera.transform.up == cameraUpEnd)
         {
             isMoving = false;
             Debug.Log(camera.transform.up);
@@ -104,7 +104,7 @@ public class CameraViewControl : MonoBehaviour {
         
         float distCovered = (Time.time - startTime) * speed;
         float fracJourney = distCovered / Vector3.Distance(startPosition, endPosition);
-        float qfracJourney = (Time.time - startTime) * speed / Vector3.Distance(cameraUpStart, cameraUpEnd);
+        float qfracJourney = (Time.time - startTime) / Vector3.Distance(cameraUpStart, cameraUpEnd);
         camera.transform.position = Vector3.Lerp(startPosition, endPosition, fracJourney);
         camera.transform.LookAt(currentFocalPoint, Vector3.Lerp(cameraUpStart, cameraUpEnd, qfracJourney));
         

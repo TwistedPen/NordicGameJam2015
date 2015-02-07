@@ -26,6 +26,8 @@ public class RandomAudioClip : AudioComponent {
 
 		int randomClip = Random.Range(0, audioClips.Length);
 	
+		if(randomizePitch) audioSource.pitch = Random.Range(minRandomPitch, maxRandomPitch);
+
 		audioSource.PlayOneShot(audioClips[randomClip]);
 	}
 }

@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(colInfo.gameObject.tag == "Obstacle")
 		{
-			GameObject.Find("UI").SendMessage("ShowMenu");
-			Time.timeScale = 0;
+			StartCoroutine(PanCameras());
+
 			//Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
 
 			//Update UI
@@ -95,6 +95,14 @@ public class PlayerController : MonoBehaviour {
 			//Show Menu
 
 		}
+	}
+
+	IEnumerator PanCameras()
+	{
+		//GameObject.Find("Camera_Portrait_left").SendMessage("
+		yield return new WaitForSeconds(4f);
+
+		GameObject.Find("UI").SendMessage("ShowMenu");
 	}
 
 	public void AddScore()

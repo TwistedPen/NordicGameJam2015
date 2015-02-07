@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour {
 		Audio.audioManager = this;
 
 		audioComponents.Add(SoundEvent.Collide, collide);
-		audioComponents.Add(SoundEvent.Jump, collide);
+		audioComponents.Add(SoundEvent.Jump, jump);
 	}
 
 	public void Play(SoundEvent soundEvent)

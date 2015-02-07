@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float maxSpeed = 20f;
-	public float jumpForce = 20f;
+	public float jumpForce = 200f;
 
 	public bool grounded = false;
 	public Transform groundCheck;
@@ -20,12 +20,17 @@ public class PlayerController : MonoBehaviour {
 	{
 		//check if it hit something			where circle is		its radius		things it collide with
 		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
+
+		if(grounded)
+		{
+			Debug.Log("player can jump");
+		}
 				
 		//move characted based on direction input and max speed
 		float move = Input.GetAxis("Horizontal");
 		
-		rigidbody.velocity = new Vector3(0f, 0f, maxSpeed);
-		//rigidbody.velocity = new Vector3(rigidbody.velocity.y, rigidbody.velocity.y, maxSpeed);
+		//rigidbody.velocity = new Vector3(0f, 0f, maxSpeed);
+		rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y, maxSpeed);
 
 	}
 
@@ -33,14 +38,14 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 	
 		//Jump if jump button is pressed and character is on the ground
-		if(grounded && Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.Space))
 		{
 			//add the upward force to make player jump
-			rigidbody2D.AddForce(new Vector2(0f,jumpForce));
+			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
+			Debug.Log("player jumped");
+
+			grounded = false;
 			
-			//makes sure player cannot double jump infinite times
-			if(!grounded)
-				canDoubleJump = false;
 		}
 	}
 }

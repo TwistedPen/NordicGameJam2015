@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GroundCheckScript : MonoBehaviour {
+public class topCameraController : MonoBehaviour {
 
 	public Transform ball;
 	// Use this for initialization

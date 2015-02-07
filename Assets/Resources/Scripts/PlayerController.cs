@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 		
 
 		//Jump if jump button is pressed and character is on the ground
-		if(grounded && Input.GetKeyDown(KeyCode.Space))
+		if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		Debug.Log("player jumped called" + grounded);
 		//Jump if jump button is pressed and character is on the ground
-		if(grounded)
+		if(grounded && Time.timeScale == 1)
 		{
 			//add the upward force to make player jump
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));

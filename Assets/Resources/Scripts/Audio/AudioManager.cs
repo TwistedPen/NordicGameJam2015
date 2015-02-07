@@ -6,13 +6,13 @@ public class AudioManager : MonoBehaviour {
 
 	private Dictionary<SoundEvent, AudioComponent> audioComponents = new Dictionary<SoundEvent, AudioComponent>();
 
-	[SerializeField] private AudioComponent jump; 
+	[SerializeField] private AudioComponent collide; 
 
 	void Awake()
 	{
 		Audio.audioManager = this;
 
-		audioComponents.Add(SoundEvent.Jump, jump);
+		audioComponents.Add(SoundEvent.Collide, collide);
 	}
 
 	public void Play(SoundEvent soundEvent)
@@ -24,5 +24,6 @@ public class AudioManager : MonoBehaviour {
 public enum SoundEvent
 {
 	Jump,
-	Reward
+	Reward,
+	Collide
 }

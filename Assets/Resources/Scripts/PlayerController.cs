@@ -15,21 +15,20 @@ public class PlayerController : MonoBehaviour {
 	int numError = 0;
 	int score = 0;
 
+	//lane change (Lerp)
+	Vector3 startMarker;
+	Vector3 endMarker;
+	float speed = 10.0F;
+	float startTime;
+	float journeyLength;
+	bool changingLane = false;
+	
 	// Use this for initialization
 	void Start () {
-	
-	}
 
-	void FixedUpdate()
-	{
-		//check if it hit something			where circle is		its radius		things it collide with
-		//grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
 	}
-	
 	// Update is called once per frame
 	void Update () {
-
-		
 
 		//Jump if jump button is pressed and character is on the ground
 		if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
@@ -43,22 +42,26 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			//Audio.Play(SoundEvent.Jump);
 			MoveLeft();
 		}
 
 		if(Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			//Audio.Play(SoundEvent.Jump);
 			MoveRight();
 		}
 
+		//lane swap lerp
+		if(changingLane)
+		{
+			float distCovered = (Time.time - startTime) * speed;
+			float fracJourney = distCovered / journeyLength;
+			transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
+		}
+		
 	}
 
 	void OnCollisionEnter(Collision colInfo)
 	{
-
-		//Debug.Log("Player hit: " + colInfo.gameObject.name);
 
 		if(colInfo.gameObject.name == "Floor")
 		{
@@ -106,9 +109,15 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(transform.position.x < 1f)
 		{
+			startMarker = transform.position;
+			endMarker = new Vector3(transform.position.x+1.5f,transform.position.y,transform.position.z);
+			startTime = Time.time;
+			journeyLength = Vector3.Distance(startMarker, endMarker);
+			changingLane = true;
+
 			Audio.Play(SoundEvent.Move);
 
-			transform.Translate(new Vector3 (1.5f,0f, 0f));
+			//transform.Translate(new Vector3 (1.5f,0f, 0f));
 		}
 			
 	}
@@ -116,9 +125,14 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(transform.position.x > -1f)
 		{
+			startMarker = transform.position;
+			endMarker = new Vector3(transform.position.x-1.5f,transform.position.y,transform.position.z);
+			startTime = Time.time;
+			journeyLength = Vector3.Distance(startMarker, endMarker);
+			changingLane = true;
 			Audio.Play(SoundEvent.Move);
 
-			transform.Translate(new Vector3 (-1.5f,0f, 0f));
+			//transform.Translate(new Vector3 (-1.5f,0f, 0f));
 		}
 	}
 	public void Jump()
@@ -136,3 +150,4 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 }
+

@@ -97,7 +97,6 @@ public class CameraViewControl : MonoBehaviour {
         if (camera.transform.position == endPosition)
         {
             isMoving = false;
-            Debug.Log("done");
             return;
         }
         

@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour {
 			float distCovered = (Time.time - startTime) * speed;
 			float fracJourney = distCovered / journeyLength;
 			transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
+
+			if(transform.position == endMarker)
+			{
+				changingLane = false;
+			}
 		}
 		
 	}
@@ -103,6 +108,7 @@ public class PlayerController : MonoBehaviour {
 			if(scoreTexts[i].gameObject.name == "Number")
 				scoreTexts[i].text = score.ToString();
 		}
+		Audio.Play(SoundEvent.Reward);
 	}
 	
 	public void MoveRight()

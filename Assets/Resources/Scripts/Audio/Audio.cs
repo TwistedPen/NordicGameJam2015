@@ -7,7 +7,7 @@ public static class Audio {
 
 	public static void Play(SoundEvent soundEvent)
 	{
-		//audioManager.Play(soundEvent);
+		if(audioManager != null) audioManager.Play(soundEvent);
 	}
 
 }

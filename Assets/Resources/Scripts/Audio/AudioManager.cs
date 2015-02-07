@@ -7,17 +7,22 @@ public class AudioManager : MonoBehaviour {
 	private Dictionary<SoundEvent, AudioComponent> audioComponents = new Dictionary<SoundEvent, AudioComponent>();
 
 	[SerializeField] private AudioComponent collide; 
+	[SerializeField] private AudioComponent jump; 
 
 	void Awake()
 	{
 		Audio.audioManager = this;
 
 		audioComponents.Add(SoundEvent.Collide, collide);
+		audioComponents.Add(SoundEvent.Jump, collide);
 	}
 
 	public void Play(SoundEvent soundEvent)
 	{
-		audioComponents[soundEvent].Play();
+		if(audioComponents[soundEvent] != null)
+		{
+			audioComponents[soundEvent].Play();
+		}
 	}
 }
 

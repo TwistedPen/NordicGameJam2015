@@ -106,9 +106,17 @@ public class PlayerController : MonoBehaviour {
 	void ChangeControlState()
 	{
 		if(canControl)
+		{
+			//gameObject.rigidbody.velocity = new Vector3 (0f,0f,0f);
+			gameObject.rigidbody.isKinematic = true;
+
 			canControl = false;
+		}
 		else
+		{
+			gameObject.rigidbody.isKinematic = false;
 			canControl = true;
+		}
 
 	}
 	IEnumerator PanCameras()

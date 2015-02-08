@@ -24,6 +24,6 @@ public class Menu_InGameMenu_ButtonController : MonoBehaviour {
 
 	public void MainMenu()
 	{
-		Application.LoadLevel("Main_Menu");
+		Application.LoadLevel(0);
 	}
 }

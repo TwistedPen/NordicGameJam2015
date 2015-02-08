@@ -4212,6 +4212,30 @@ Prefab:
       propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MoveRight
       objectReference: {fileID: 0}
+    - target: {fileID: 22411164, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411164, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411164, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411164, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411164, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411164, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1280
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cd309a8d020f5945bff337c7bcb42ff, type: 2}
   m_RootGameObject: {fileID: 1350348899}
@@ -8135,7 +8159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEvent: 5
   audioClips:
-  - {fileID: 8300000, guid: aae783d70760e41c28a2df65380b0474, type: 3}
+  - {fileID: 8300000, guid: 1af46d251c55644908e9d37851cfbf9c, type: 3}
   minRandomPitch: 0
   maxRandomPitch: 0
 --- !u!4 &1606484754
@@ -9995,10 +10019,10 @@ RectTransform:
   - {fileID: 846755899}
   m_Father: {fileID: 1350348900}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: -294}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 1280}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2032693269
 MonoBehaviour:

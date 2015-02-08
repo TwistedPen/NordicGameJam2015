@@ -93,21 +93,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			StartCoroutine(PanCameras());
 
-			//Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
-
-			//Update UI
-			numError++;
-			Text[] ErrorTexts = GameObject.Find("Text_Error").GetComponentsInChildren<Text>();
-			for (int i = 0 ; i < ErrorTexts.Length; i++)
-			{
-				if(ErrorTexts[i].gameObject.name == "Number")
-					ErrorTexts[i].text = numError.ToString();
-			}
-
 			Audio.Play(SoundEvent.Collide);
-
-			//Show Menu
-
 		}
 	}
 

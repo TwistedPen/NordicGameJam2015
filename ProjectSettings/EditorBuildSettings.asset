@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Resources/Prefabs/Scenes/Main_Menu.unity
+    path: Assets/Resources/Prefabs/Scenes/Old_Prototypes/Main_Menu.unity
   - enabled: 1
-    path: Assets/Resources/Prefabs/Scenes/Prototype_Portrait_Test_layingDown.unity
+    path: Assets/Resources/Prefabs/Scenes/Old_Prototypes/Prototype_Portrait_Test_layingDown.unity

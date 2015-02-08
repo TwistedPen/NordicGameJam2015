@@ -20,9 +20,26 @@ public class SpawnScript : MonoBehaviour {
 
 	void Spawn()
 	{
-		if(canSpawn)
-			Instantiate(obj[Random.Range(0, obj.Length)], transform.position, Quaternion.identity);
-			Invoke("Spawn", Random.Range(spawnMin, spawnMax));
+		if(canSpawn){
+
+			int randNr = Random.Range(0,4);
+			if(randNr > 2)
+			  {
+				Instantiate(obj[Random.Range(0, obj.Length)], new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z), transform.rotation);
+				Invoke("Spawn", Random.Range(spawnMin, spawnMax));
+			}
+			else if(randNr > 1)
+			{
+				Instantiate(obj[Random.Range(0, obj.Length)], new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
+				Invoke("Spawn", Random.Range(spawnMin, spawnMax));
+			}
+			else
+			{
+				Instantiate(obj[Random.Range(0, obj.Length)], new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z),new Quaternion(transform.rotation.x-90,90,transform.rotation.z,1f));
+				Invoke("Spawn", Random.Range(spawnMin, spawnMax));
+			}
+
+		}
 	}
 
 	public void ChangeSpawnState()

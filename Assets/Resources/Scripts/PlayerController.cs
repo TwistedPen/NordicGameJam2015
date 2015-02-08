@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	float startTime;
 	float journeyLength;
 	bool changingLane = false;
+    public VelocityStretch vs;
 
 	//for gameover
 	bool canControl = true;
@@ -59,6 +60,8 @@ public class PlayerController : MonoBehaviour {
 				float distCovered = (Time.time - startTime) * speed;
 				float fracJourney = distCovered / journeyLength;
 				transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
+                if (vs != null)
+                    vs.LeftRightTime(fracJourney);
 
 				if(transform.position == endMarker)
 				{

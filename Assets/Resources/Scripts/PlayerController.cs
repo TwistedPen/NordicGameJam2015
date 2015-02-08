@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			obstacles[i].SendMessage("ChangeObjectState");
 		}
+		//GameObject.Find("ObjecSpawner_layingDown").SendMessage("ChangeSpawnState");
 		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
 
 		if(panOut)

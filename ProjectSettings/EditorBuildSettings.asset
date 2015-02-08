@@ -8,4 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Prefabs/Scenes/Main_Menu.unity
   - enabled: 1
-    path: Assets/Resources/Prefabs/Scenes/Prototype_Portrait.unity
+    path: Assets/Resources/Prefabs/Scenes/Prototype_Portrait_Test_layingDown.unity

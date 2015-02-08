@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 			if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 			{
 				//add the upward force to make player jump
-				Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
+				//Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
 				Jump();
 
 			}
@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		Audio.Play(SoundEvent.Reward);
 
-		if(score%1 == 0)
+		if(score%15 == 0)
 		{
 			haveSwaped = false;
 			StartCoroutine(SwapCameras());

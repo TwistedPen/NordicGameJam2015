@@ -12,6 +12,12 @@ public class IntroTetrisSpawn : MonoBehaviour {
 	{
 		instantiatedPieces = new List<GameObject>();
 		InvokeRepeating ("SpawnTetris", 0f, 4f);
+		InvokeRepeating ("PlaySound", 2.5f, 4f);
+	}
+
+	void PlaySound()
+	{
+		audio.Play ();
 	}
 
 	void SpawnTetris()

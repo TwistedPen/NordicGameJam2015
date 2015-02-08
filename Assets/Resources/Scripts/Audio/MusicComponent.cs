@@ -30,7 +30,7 @@ public class MusicComponent : AudioComponent {
 
 		audioSource.volume = 0f;
 		audioSource.Play();
-		fadeInTime = 0f;
+		fadeCounter = 0f;
 		StartCoroutine(FadeIn());
 	}
 

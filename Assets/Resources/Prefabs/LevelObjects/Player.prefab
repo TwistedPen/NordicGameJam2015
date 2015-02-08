@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2361216}
   - 114: {fileID: 11461216}
   - 54: {fileID: 5461216}
+  - 114: {fileID: 11454140}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -43,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .569999993, z: -4.82000017}
+  m_LocalPosition: {x: 0, y: .800000012, z: -4.80000019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461218}
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -.50999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 461216}
@@ -103,6 +104,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &11454140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48339bd25f918d4b8c3e42871a0f54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: .0199999996
+  player: {fileID: 461216}
 --- !u!114 &11461216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  jumpForce: 30
+  jumpForce: 40
   grounded: 1
   groundCheck: {fileID: 461218}
   WhatIsGround:

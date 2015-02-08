@@ -28,7 +28,9 @@ public class CameraViewControl : MonoBehaviour {
     private Vector3 tempPos;
     private Vector3 swapFocalPoint;
     public Vector3 currentFocalPoint;
-    public float speed = 1.0F;
+    public float gameOverspeed = 1.0f;
+    public float swapSpeed = 1.0f;
+    private float speed = 1.0f;
     private float startTime;
     
     private bool isMoving = false;
@@ -75,12 +77,15 @@ public class CameraViewControl : MonoBehaviour {
             switch (currentPos)
             {
                 case CameraPositions.originalPos:
+                    speed = gameOverspeed;
                     moveTo(startTime, tempPos, startPos, tempUp, cameraUpStart);
                     break;
                 case CameraPositions.gameOverPosition:
+                    speed = gameOverspeed;
                     moveTo(startTime, startPos, endPos, cameraUpStart, cameraUpEnd);
                     break;
                 case CameraPositions.swappedPosition:
+                    speed = swapSpeed;
                     if(currentPos == CameraPositions.originalPos)
                         moveTo(startTime, swapCameraPos, startPos, swapCameraUp, cameraUpStart);
                     else if (currentPos == CameraPositions.swappedPosition)

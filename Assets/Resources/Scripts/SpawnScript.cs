@@ -7,6 +7,7 @@ public class SpawnScript : MonoBehaviour {
 	public float spawnMin = 1f;
 	public float spawnMax = 2;
 	bool canSpawn = true;
+	int obstaclesSpawned = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class SpawnScript : MonoBehaviour {
 	void Spawn()
 	{
 		if(canSpawn){
+			obstaclesSpawned++;
 
 			int randNr = Random.Range(0,4);
 			if(randNr > 2)
@@ -39,8 +41,14 @@ public class SpawnScript : MonoBehaviour {
 				Invoke("Spawn", Random.Range(spawnMin, spawnMax));
 			}
 
+			if(obstaclesSpawned%10 == 0)
+			{
+	
+				canSpawn = false;
+			}
 		}
 	}
+	
 
 	public void ChangeSpawnState()
 	{

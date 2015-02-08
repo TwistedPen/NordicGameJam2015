@@ -159,15 +159,15 @@ public class PlayerController : MonoBehaviour {
 		{
 			obstacles[i].SendMessage("ChangeObjectState");
 		}
-		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
-		//GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+	
+
 		if(!haveSwaped)
 		{
 			GameObject.Find("UI").SendMessage("SwapUI");
 			GameObject.Find("Camera_Portrait_left").SendMessage("Swap");
 			GameObject.Find("Camera_Portrait_top").SendMessage("Swap");
 			yield return new WaitForSeconds(4f);
-			
+			GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
 			haveSwaped = true;
 			Audio.Play(SoundEvent.Swap);
 			StartCoroutine(SwapCameras());
@@ -189,7 +189,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		Audio.Play(SoundEvent.Reward);
 
-		if(score%15 == 0)
+
+		if(score%10 == 0)
 		{
 			haveSwaped = false;
 			StartCoroutine(SwapCameras());

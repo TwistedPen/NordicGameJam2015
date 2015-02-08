@@ -50,14 +50,14 @@ public class SpawnScript : MonoBehaviour {
 	}
 	
 
-	public void ChangeSpawnState()
+	public void SpawnState(bool state)
 	{
+		Debug.Log("Spawn State: " + state);
+		canSpawn = state;
+
 		if(canSpawn)
-			canSpawn = false;
-		else
-		{
-			canSpawn = true;
-			Spawn();
-		}
+			Invoke("Spawn", Random.Range(spawnMin, spawnMax));
+
 	}
+
 }

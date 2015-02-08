@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour {
         fac.StopAnimation();
 
 		//GameObject.Find("ObjecSpawner_layingDown").SendMessage("ChangeSpawnState");
-		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+		GameObject.Find("ObjecSpawner").SendMessage("SpawnState", false);
 
 		if(panOut)
 		{
@@ -163,11 +163,13 @@ public class PlayerController : MonoBehaviour {
 
 		if(!haveSwaped)
 		{
+
 			GameObject.Find("UI").SendMessage("SwapUI");
 			GameObject.Find("Camera_Portrait_left").SendMessage("Swap");
 			GameObject.Find("Camera_Portrait_top").SendMessage("Swap");
-			yield return new WaitForSeconds(4f);
-			GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+			yield return new WaitForSeconds(3f);
+			GameObject.Find("ObjecSpawner").SendMessage("SpawnState", true);
+
 			haveSwaped = true;
 			Audio.Play(SoundEvent.Swap);
 			StartCoroutine(SwapCameras());
@@ -189,7 +191,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		Audio.Play(SoundEvent.Reward);
 
-		if(score%9 == 0)
+		if(score%10 == 9)
 		{
 			GameObject.Find("Camera_Portrait_left").SendMessage("StartShake");
 			GameObject.Find("Camera_Portrait_top").SendMessage("StartShake");

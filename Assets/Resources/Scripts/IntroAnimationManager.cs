@@ -30,7 +30,7 @@ public class IntroAnimationManager : MonoBehaviour {
 
 	void ChangeLevel()
 	{
-		Application.LoadLevel (2);
+		Application.LoadLevel (1);
 	}
 
 }

@@ -96,7 +96,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161216}
   serializedVersion: 2
-  m_Mass: .100000001
+  m_Mass: .0799999982
   m_Drag: 0
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  jumpForce: 36
-  bounceForce: 13
+  jumpForce: 31
+  bounceForce: 9.60000038
   grounded: 1
   groundCheck: {fileID: 461218}
   WhatIsGround:

@@ -14,10 +14,8 @@ public class VelocityStretch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        //Debug.Log(player.rigidbody.velocity);
         
         float veloc = player.rigidbody.velocity.y*effect;
-        Debug.Log(veloc);
         player.localScale = new Vector3(originScale.x - originScale.x * veloc,originScale.y + originScale.y*veloc,originScale.z - originScale.z*veloc);
         
 	}

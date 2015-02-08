@@ -5,83 +5,148 @@ using System.Collections;
  * moves the camera to show either a isometric view of a 2D view
  */
 
+enum CameraPositions
+{
+    originalPos,
+    gameOverPosition,
+    swappedPosition
+
+};
+
 public class CameraViewControl : MonoBehaviour {
 
+    private CameraPositions currentPos = CameraPositions.originalPos;
     public Camera camera;
+    public Camera swapCamera;
     public Vector3 endPos;
     public Vector3 cameraUpStart = new Vector3(0,1,0);
     public Vector3 cameraUpEnd = new Vector3(-1, -1, -1);
     private Vector3 startPos;
+    private Vector3 swapCameraUp;
+    private Vector3 swapCameraPos;
+    private Vector3 tempUp;
+    private Vector3 tempPos;
+    private Vector3 swapFocalPoint;
+    public Vector3 currentFocalPoint;
     public float speed = 1.0F;
     private float startTime;
-    private float journeyLength;
-    private bool displayIsometric = false;
-    private bool display2D = false;
+    
+    private bool isMoving = false;
     private Vector3 focalPoint;
+
+    void Awake()
+    {
+        Plane plane = new Plane(-1 * camera.transform.forward, new Vector3(0, 0, 0));
+        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        float distance;
+        if (plane.Raycast(ray, out distance))
+        {
+            focalPoint = ray.GetPoint(distance);
+            currentFocalPoint = focalPoint;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
         startPos = camera.transform.position;
-        journeyLength = Vector3.Distance(startPos, endPos);
-
-        Plane plane = new Plane(-1*camera.transform.forward, new Vector3(0, 0, 0));
-        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        float distance;
-        if(plane.Raycast(ray,out distance))
-        {
-            focalPoint = ray.GetPoint(distance);
-        }
+        swapCameraUp = swapCamera.transform.up;
+        swapCameraPos = swapCamera.transform.position;
+        swapFocalPoint = swapCamera.GetComponent<CameraViewControl>().focalPoint;
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.G) && !displayIsometric)
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            startTime = Time.time;
-            displayIsometric = true;
+            GameOver();
         }
-        if (Input.GetKeyDown(KeyCode.H) && !display2D)
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            startTime = Time.time;
-            display2D = true;
+            ReturnToOrigin();
         }
-        if (displayIsometric)
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            moveIsometric();
+            Swap();
         }
-        if (display2D)
-        {
-            move2D();
-        }
+
+        if(isMoving)
+            switch (currentPos)
+            {
+                case CameraPositions.originalPos:
+                    moveTo(startTime, tempPos, startPos, tempUp, cameraUpStart);
+                    break;
+                case CameraPositions.gameOverPosition:
+                    moveTo(startTime, startPos, endPos, cameraUpStart, cameraUpEnd);
+                    break;
+                case CameraPositions.swappedPosition:
+                    if(currentPos == CameraPositions.originalPos)
+                        moveTo(startTime, swapCameraPos, startPos, swapCameraUp, cameraUpStart);
+                    else if (currentPos == CameraPositions.swappedPosition)
+                        moveTo(startTime, startPos, swapCameraPos, cameraUpStart, swapCameraUp);
+                    break;
+            }
 	}
 
-    // moves the camera to display a isometric view
-    void moveIsometric()
+    // moves the camera with lerp by using a start time for when the call is started 
+    // along with a start and end position and a start and end up vector for the camera
+    void moveTo(float startTime, Vector3 startPosition, Vector3 endPosition, Vector3 cameraUpStart, Vector3 cameraUpEnd)
     {
-        if (camera.transform.position == endPos)
+        if (camera.transform.position == endPosition)
         {
-            displayIsometric = false;
+            isMoving = false;
+            return;
         }
         
         float distCovered = (Time.time - startTime) * speed;
-        float fracJourney = distCovered / journeyLength;
-        float qfracJourney = (Time.time - startTime) / Vector3.Distance(cameraUpEnd, cameraUpStart);
-        camera.transform.position = Vector3.Lerp(startPos, endPos, fracJourney);
-        camera.transform.LookAt(focalPoint, Vector3.Lerp(cameraUpStart, cameraUpEnd, qfracJourney));
-        
+        float fracJourney = distCovered / Vector3.Distance(startPosition, endPosition);
+        float qfracJourney = (Time.time - startTime) * speed / Vector3.Distance(cameraUpStart, cameraUpEnd);
+        camera.transform.position = Vector3.Lerp(startPosition, endPosition, fracJourney);
+        Vector3 newUp = Vector3.Lerp(cameraUpStart, cameraUpEnd, qfracJourney);
+        camera.transform.LookAt(currentFocalPoint, newUp);
     }
-    // move the camera to display a 2D view
-    void move2D()
+
+    public void Swap()
     {
-        if (camera.transform.position == startPos)
+        if (!isMoving && currentPos != CameraPositions.gameOverPosition)
         {
-            display2D = false;
+            startTime = Time.time;
+            if (currentPos == CameraPositions.originalPos)
+            {
+                currentFocalPoint = swapFocalPoint;
+                currentPos = CameraPositions.swappedPosition;
+            }
+            else if (currentPos == CameraPositions.swappedPosition)
+            {
+                currentFocalPoint = focalPoint;
+                currentPos = CameraPositions.originalPos;
+            }
+            isMoving = true;
         }
-        float distCovered = (Time.time - startTime) * speed;
-        float fracJourney = distCovered / journeyLength;
-        float qfracJourney = (Time.time - startTime) / Vector3.Distance(cameraUpStart, cameraUpEnd);
-        camera.transform.position = Vector3.Lerp(endPos, startPos, fracJourney);
-        camera.transform.LookAt(focalPoint, Vector3.Lerp(cameraUpEnd,cameraUpStart,qfracJourney));
+    }
+
+    public void ReturnToOrigin()
+    {
+        if (!isMoving && currentPos != CameraPositions.originalPos)
+        {
+            currentFocalPoint = focalPoint;
+            tempPos = camera.transform.position;
+            tempUp = camera.transform.up;
+            startTime = Time.time;
+            currentPos = CameraPositions.originalPos;
+            isMoving = true;
+        }
+    }
+
+    public void GameOver()
+    {
+        if (!isMoving && currentPos != CameraPositions.gameOverPosition)
+        {
+            currentFocalPoint = focalPoint;
+            startTime = Time.time;
+            currentPos = CameraPositions.gameOverPosition;
+            isMoving = true;
+        }
     }
 }

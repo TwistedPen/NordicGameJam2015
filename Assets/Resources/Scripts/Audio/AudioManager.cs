@@ -60,5 +60,6 @@ public enum SoundEvent
 	Jump,
 	Reward,
 	Collide,
-	Move
+	Move,
+	Land
 }

@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2300338}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Obstacle
+  m_TagString: ObstaclePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   - 23: {fileID: 2300340}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Obstacle
+  m_TagString: ObstaclePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

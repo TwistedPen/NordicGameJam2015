@@ -64,3 +64,5 @@ $RECYCLE.BIN/
 *.lnk
 
 ProjectSettings/ProjectSettings.asset
+
+Assets/Resources/Prefabs/LevelObjects/Background_Top.prefab

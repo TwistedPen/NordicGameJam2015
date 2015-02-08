@@ -30,7 +30,6 @@ public class MusicComponent : AudioComponent {
 
 		audioSource.volume = 0f;
 		audioSource.Play();
-		Debug.Log("shit's called");
 		fadeInTime = 0f;
 		StartCoroutine(FadeIn());
 	}
@@ -39,7 +38,7 @@ public class MusicComponent : AudioComponent {
 	{
 		yield return new WaitForSeconds(0.01f);
 
-		if(fadeCounter >= fadeInTime)
+		if(fadeCounter <= fadeInTime)
 		{
 			fadeCounter += 0.01f;
 			currentVolume = Mathf.Lerp(0f, maxVolume, fadeCounter / fadeInTime);

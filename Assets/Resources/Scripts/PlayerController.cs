@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private FloorAnimationController fac;
 
+	//Cached topscore UI
+	private Text topscoreUI1;
+	private Text topscoreUI2;
+
 	//for gameover
 	bool canControl = true;
 	bool panOut = true;
@@ -35,11 +39,15 @@ public class PlayerController : MonoBehaviour {
 	bool haveSwaped = false;
 	Vector3 playerVelocity;
 
-	// Use this for initialization
-	void Start () {
 
+	void Start () 
+	{
+		topscoreUI1 = GameObject.Find("Text_TopScore").GetComponent<Text>();
+		topscoreUI2 = GameObject.Find("Text_TopScore2").GetComponent<Text>();
+		HandleTopScore();
 	}
-	// Update is called once per frame
+
+
 	void Update () {
 		if(canControl)
 		{
@@ -98,9 +106,26 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine(PanCameras());
 
 			Audio.Play(SoundEvent.Collide);
+
+			HandleTopScore();
 		}
 	}
 
+	void HandleTopScore()
+	{
+		//TOPSCORE
+		int currentTopScore = PlayerPrefs.GetInt("TopScore", 0);
+		if(score > currentTopScore)
+		{
+			currentTopScore = score;
+		}
+
+		PlayerPrefs.SetInt("TopScore", currentTopScore);
+
+		topscoreUI1.text = "Top Score: " + currentTopScore.ToString();
+		topscoreUI2.text = "Top Score: " + currentTopScore.ToString();
+	}
+	
 	void ChangeControlState()
 	{
 		if(canControl)

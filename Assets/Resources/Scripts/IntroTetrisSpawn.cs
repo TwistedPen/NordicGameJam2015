@@ -19,6 +19,11 @@ public class IntroTetrisSpawn : MonoBehaviour {
 		instantiatedPieces.Add((GameObject) Instantiate(pieces[Random.Range(0, pieces.Length)], transform.position, Quaternion.identity));
 	}
 
+	public void CancelProduction()
+	{
+		CancelInvoke ("SpawnTetris");
+	}
+
 	void Update()
 	{
 		foreach(GameObject g in instantiatedPieces)

@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Cube
+  m_Name: Sphere
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110759624}
+    m_StateMachine: {fileID: 110773726}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -20,47 +20,47 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &110239932
+--- !u!1102 &110261720
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: amok
+  m_Name: spawn_player
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 2cf9fab4de46a4d10b32a1daa3cc27e0, type: 2}
-  m_ParentStateMachine: {fileID: 110759624}
+  - {fileID: 7400000, guid: 3a01ed99187894e43a1d59ade7d19f0b, type: 2}
+  m_ParentStateMachine: {fileID: 110773726}
   m_Position: {x: 85, y: 115, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110259624
+--- !u!1102 &110273726
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: bumle
+  m_Name: spawn_bold
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 3c632caadd6f24bf2b5eaeffc14f3681, type: 2}
-  m_ParentStateMachine: {fileID: 110759624}
+  - {fileID: 7400000, guid: 3a893784ba0e44c29a63db4370eeaf47, type: 2}
+  m_ParentStateMachine: {fileID: 110773726}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110759624
+--- !u!1107 &110773726
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110259624}
+  m_DefaultState: {fileID: 110273726}
   m_States:
-  - {fileID: 110259624}
-  - {fileID: 110239932}
+  - {fileID: 110273726}
+  - {fileID: 110261720}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}

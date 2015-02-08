@@ -49,6 +49,6 @@ public class ObstacleController : MonoBehaviour {
 		else
 			canMove = true;
 
-		Debug.Log("Obstacle State: " + canMove);
+		//Debug.Log("Obstacle State: " + canMove);
 	}
 }

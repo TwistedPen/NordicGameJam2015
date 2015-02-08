@@ -1087,6 +1087,7 @@ GameObject:
   - 33: {fileID: 195244231}
   - 65: {fileID: 195244230}
   - 23: {fileID: 195244229}
+  - 114: {fileID: 195244233}
   m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
@@ -1149,6 +1150,19 @@ Transform:
   - {fileID: 154368352}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &195244233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11470342, guid: f012997839dc0224f9e49ca9b06add6a,
+    type: 2}
+  m_PrefabInternal: {fileID: 988999846}
+  m_GameObject: {fileID: 195244228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fb62a8321b6cd41a4448f55536a82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorSpeed: 3
 --- !u!1 &195612022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,6 +4941,10 @@ Prefab:
     - target: {fileID: 497374, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
       propertyPath: m_LocalScale.x
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470342, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
+      propertyPath: floorSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}

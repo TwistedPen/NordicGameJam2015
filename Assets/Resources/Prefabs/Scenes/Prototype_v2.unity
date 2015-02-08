@@ -1052,7 +1052,7 @@ Transform:
   m_GameObject: {fileID: 195244228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.230000004, y: -1.5, z: 4.55999994}
-  m_LocalScale: {x: 7, y: 1.70565033, z: 40}
+  m_LocalScale: {x: 6, y: 1.70000005, z: 40}
   m_Children:
   - {fileID: 154368352}
   m_Father: {fileID: 0}
@@ -2628,6 +2628,7 @@ GameObject:
   - 124: {fileID: 522701463}
   - 81: {fileID: 522701462}
   - 114: {fileID: 522701466}
+  - 114: {fileID: 522701467}
   m_Layer: 0
   m_Name: Camera_Portrait_top
   m_TagString: MainCamera
@@ -2724,6 +2725,20 @@ MonoBehaviour:
   currentFocalPoint: {x: 0, y: 0, z: 0}
   gameOverspeed: 10
   swapSpeed: 3
+--- !u!114 &522701467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11481364, guid: dd490154538e2c142aaadf07c2f6d489,
+    type: 2}
+  m_PrefabInternal: {fileID: 244061838}
+  m_GameObject: {fileID: 522701460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d228e70313695704fba227fbc739bb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: .00999999978
+  decay: .00200000009
 --- !u!1 &533892623
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,7 +5048,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497374, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
       propertyPath: m_LocalScale.x
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11470342, guid: f012997839dc0224f9e49ca9b06add6a, type: 2}
       propertyPath: floorSpeed
@@ -5101,7 +5116,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 1318103727}
   m_GameObject: {fileID: 994603698}
   serializedVersion: 2
-  m_Mass: .100000001
+  m_Mass: .0799999982
   m_Drag: 0
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -5122,8 +5137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  jumpForce: 36
-  bounceForce: 13
+  jumpForce: 31
+  bounceForce: 9.60000038
   grounded: 1
   groundCheck: {fileID: 1034058964}
   WhatIsGround:
@@ -7710,6 +7725,7 @@ GameObject:
   - 124: {fileID: 1484508867}
   - 81: {fileID: 1484508866}
   - 114: {fileID: 1484508871}
+  - 114: {fileID: 1484508872}
   m_Layer: 0
   m_Name: Camera_Portrait_left
   m_TagString: MainCamera
@@ -7806,6 +7822,20 @@ MonoBehaviour:
   currentFocalPoint: {x: 0, y: 0, z: 0}
   gameOverspeed: 10
   swapSpeed: 3
+--- !u!114 &1484508872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11460918, guid: 3e429982c4a8d7746a864e8a6db24ed6,
+    type: 2}
+  m_PrefabInternal: {fileID: 619910147}
+  m_GameObject: {fileID: 1484508865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d228e70313695704fba227fbc739bb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: .00999999978
+  decay: .00200000009
 --- !u!1 &1504060667
 GameObject:
   m_ObjectHideFlags: 0

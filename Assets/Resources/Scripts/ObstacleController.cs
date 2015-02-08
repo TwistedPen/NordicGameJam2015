@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObstacleController : MonoBehaviour {
 
-	public float speed = 3f;
+	float speed = 3f;
 	GameObject player;
 	bool hasPassedPlayer = false;
 	bool canMove = true;

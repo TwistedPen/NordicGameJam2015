@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour {
 			GameObject.Find("Camera_Portrait_left").SendMessage("GameOver");
 			GameObject.Find("Camera_Portrait_top").SendMessage("GameOver");
 
-			yield return new WaitForSeconds(5f);
+			yield return new WaitForSeconds(4f);
 			
 			GameObject.Find("UI").SendMessage("ShowMenu");
 		}

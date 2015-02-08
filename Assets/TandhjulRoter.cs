@@ -10,4 +10,9 @@ public class TandhjulRoter : MonoBehaviour {
 	{
 		transform.Rotate (0f, 1f * retning, 0f);	
 	}
+
+    public void SetRetning(float newRetning)
+    {
+        retning = newRetning;
+    }
 }

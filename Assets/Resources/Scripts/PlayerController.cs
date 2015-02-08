@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour {
 	float journeyLength;
 	bool changingLane = false;
     public VelocityStretch vs;
+    [SerializeField]
+    private FloorAnimationController fac;
 
 	//for gameover
 	bool canControl = true;
@@ -133,6 +135,9 @@ public class PlayerController : MonoBehaviour {
 		{
 			obstacles[i].SendMessage("ChangeObjectState");
 		}
+
+        fac.StopAnimation();
+
 		//GameObject.Find("ObjecSpawner_layingDown").SendMessage("ChangeSpawnState");
 		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
 

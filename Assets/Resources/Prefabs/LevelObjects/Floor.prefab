@@ -1703,6 +1703,7 @@ GameObject:
   - 33: {fileID: 3397374}
   - 65: {fileID: 6597374}
   - 23: {fileID: 2397374}
+  - 114: {fileID: 11470342}
   m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
@@ -5599,6 +5600,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11470342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fb62a8321b6cd41a4448f55536a82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorSpeed: 1
 --- !u!114 &11485546
 MonoBehaviour:
   m_ObjectHideFlags: 1

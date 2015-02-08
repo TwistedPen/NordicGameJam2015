@@ -169,6 +169,7 @@ public class PlayerController : MonoBehaviour {
 			yield return new WaitForSeconds(4f);
 			
 			haveSwaped = true;
+			Audio.Play(SoundEvent.Swap);
 			StartCoroutine(SwapCameras());
 		}
 		

@@ -89,7 +89,7 @@ public class CameraViewControl : MonoBehaviour {
                     if(currentPos == CameraPositions.originalPos)
                         moveTo(startTime, swapCameraPos, startPos, swapCameraUp, cameraUpStart);
                     else if (currentPos == CameraPositions.swappedPosition)
-                        moveTo(startTime, startPos, swapCameraPos, cameraUpStart, swapCameraUp);
+                        moveTo(startTime, startPos, swapCameraPos, cameraUpStart, -swapCameraUp);
                     break;
             }
 	}

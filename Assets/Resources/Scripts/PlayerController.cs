@@ -125,9 +125,9 @@ public class PlayerController : MonoBehaviour {
 		GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 		for (int i = 0; i< obstacles.Length; i++)
 		{
-			obstacles[i].SendMessage("ChangeObjectState");
+            obstacles[i].GetComponent<ObstacleController>().ChangeObjectState();
 		}
-
+        Debug.Log("Should stop");
         fac.StopAnimation();
 
 		//GameObject.Find("ObjecSpawner_layingDown").SendMessage("ChangeSpawnState");
@@ -157,17 +157,18 @@ public class PlayerController : MonoBehaviour {
 		GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 		for (int i = 0; i< obstacles.Length; i++)
 		{
-			obstacles[i].SendMessage("ChangeObjectState");
+            obstacles[i].GetComponent<ObstacleController>().ChangeObjectState();
 		}
-	
 
 		if(!haveSwaped)
 		{
+            fac.StopAnimation();
 			GameObject.Find("UI").SendMessage("SwapUI");
 			GameObject.Find("Camera_Portrait_left").SendMessage("Swap");
 			GameObject.Find("Camera_Portrait_top").SendMessage("Swap");
 			yield return new WaitForSeconds(4f);
 			GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+            fac.StartAnimation();
 			haveSwaped = true;
 			Audio.Play(SoundEvent.Swap);
 			StartCoroutine(SwapCameras());

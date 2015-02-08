@@ -30,7 +30,11 @@ public class PlayerController : MonoBehaviour {
 	//for gameover
 	bool canControl = true;
 	bool panOut = true;
-	
+
+	//for camera swap
+	bool haveSwaped = false;
+	Vector3 playerVelocity;
+
 	// Use this for initialization
 	void Start () {
 
@@ -102,13 +106,15 @@ public class PlayerController : MonoBehaviour {
 		if(canControl)
 		{
 			//gameObject.rigidbody.velocity = new Vector3 (0f,0f,0f);
+			playerVelocity = rigidbody.velocity;
 			gameObject.rigidbody.isKinematic = true;
-
+			
 			canControl = false;
 		}
 		else
 		{
 			gameObject.rigidbody.isKinematic = false;
+			rigidbody.velocity = playerVelocity;
 			canControl = true;
 		}
 
@@ -145,6 +151,30 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	IEnumerator SwapCameras()
+	{
+		ChangeControlState();
+		GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+		for (int i = 0; i< obstacles.Length; i++)
+		{
+			obstacles[i].SendMessage("ChangeObjectState");
+		}
+		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+		//GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+		if(!haveSwaped)
+		{
+			GameObject.Find("UI").SendMessage("SwapUI");
+			GameObject.Find("Camera_Portrait_left").SendMessage("Swap");
+			GameObject.Find("Camera_Portrait_top").SendMessage("Swap");
+			yield return new WaitForSeconds(4f);
+			
+			haveSwaped = true;
+			StartCoroutine(SwapCameras());
+		}
+		
+		yield return new WaitForSeconds(0f);
+		
+	}
 	public void AddScore()
 	{
 		//Debug.Log("player cleared an obstacle");
@@ -157,6 +187,12 @@ public class PlayerController : MonoBehaviour {
 				scoreTexts[i].text = score.ToString();
 		}
 		Audio.Play(SoundEvent.Reward);
+
+		if(score%1 == 0)
+		{
+			haveSwaped = false;
+			StartCoroutine(SwapCameras());
+		}
 	}
 	
 	public void MoveRight()

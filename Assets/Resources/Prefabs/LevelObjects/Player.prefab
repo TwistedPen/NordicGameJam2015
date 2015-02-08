@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48339bd25f918d4b8c3e42871a0f54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: .0199999996
+  verticalEffect: .0199999996
+  horizontalEffect: .200000003
   player: {fileID: 461216}
 --- !u!114 &11461216
 MonoBehaviour:
@@ -129,12 +130,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  jumpForce: 40
+  jumpForce: 36
+  bounceForce: 13
   grounded: 1
   groundCheck: {fileID: 461218}
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  vs: {fileID: 11454140}
 --- !u!114 &11461218
 MonoBehaviour:
   m_ObjectHideFlags: 1

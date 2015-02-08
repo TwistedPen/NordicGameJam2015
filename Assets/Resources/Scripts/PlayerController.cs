@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float maxSpeed = 20f;
 	public float jumpForce = 200f;
+    public float bounceForce = 200f;
 
 	public bool grounded = false;
 	public Transform groundCheck;
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour {
 
 		if(colInfo.gameObject.name == "Floor")
 		{
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.AddForce(new Vector3(0f, bounceForce, 0f));
 			Audio.Play(SoundEvent.Land);
 			grounded = true;
 		}
@@ -202,6 +205,7 @@ public class PlayerController : MonoBehaviour {
 		if(grounded && Time.timeScale == 1)
 		{
 			//add the upward force to make player jump
+            rigidbody.velocity = Vector3.zero;
 			rigidbody.AddForce(new Vector3(0f,jumpForce,0f));
 			//Debug.Log("player jumped");
 			grounded = false;

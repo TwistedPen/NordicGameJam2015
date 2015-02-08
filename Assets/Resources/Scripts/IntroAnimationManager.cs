@@ -6,6 +6,7 @@ public class IntroAnimationManager : MonoBehaviour {
 	[SerializeField] private Animator sphere;
 	[SerializeField] private Animator machine;
 	[SerializeField] private IntroTetrisSpawn tetrisSpawn;
+	[SerializeField] private GameObject ui;
 
 	void Update()
 	{
@@ -21,6 +22,8 @@ public class IntroAnimationManager : MonoBehaviour {
 		machine.Play ("amok");
 		tetrisSpawn.CancelProduction ();
 		Invoke ("ChangeLevel", 5f);
+		ui.SetActive (false);
+		audio.Play ();
 	}
 
 	void ChangeLevel()

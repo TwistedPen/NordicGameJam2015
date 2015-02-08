@@ -7,9 +7,11 @@ public class IntroTetrisSpawn : MonoBehaviour {
 	[SerializeField] private GameObject[] pieces;
 
 	private List<GameObject> instantiatedPieces;
-
+	
 	void Start () 
 	{
+		audio.Play ();
+
 		instantiatedPieces = new List<GameObject>();
 		InvokeRepeating ("SpawnTetris", 0f, 4f);
 		InvokeRepeating ("PlaySound", 2.5f, 4f);
@@ -28,6 +30,7 @@ public class IntroTetrisSpawn : MonoBehaviour {
 	public void CancelProduction()
 	{
 		CancelInvoke ("SpawnTetris");
+		CancelInvoke ("PlaySound");
 	}
 
 	void Update()

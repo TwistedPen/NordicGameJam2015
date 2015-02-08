@@ -12,7 +12,6 @@ public class PlayerController_LayingDown : MonoBehaviour {
 	float groundRadius = 0.1f;
 	public LayerMask WhatIsGround;//for checking if it something player can stand on
 
-	int numError = 0;
 	int score = 0;
 
 	//lane change (Lerp)
@@ -42,7 +41,7 @@ public class PlayerController_LayingDown : MonoBehaviour {
 			if(grounded && Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 			{
 				//add the upward force to make player jump
-				Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
+				//Debug.Log("jumping - Time.timeScale: " + Time.timeScale);
 				Jump();
 
 			}
@@ -89,20 +88,7 @@ public class PlayerController_LayingDown : MonoBehaviour {
 			StartCoroutine(PanCameras());
 
 			//Debug.Log("Player hit Obstacle: " + colInfo.gameObject.name);
-
-			//Update UI
-			numError++;
-			Text[] ErrorTexts = GameObject.Find("Text_Error").GetComponentsInChildren<Text>();
-			for (int i = 0 ; i < ErrorTexts.Length; i++)
-			{
-				if(ErrorTexts[i].gameObject.name == "Number")
-					ErrorTexts[i].text = numError.ToString();
-			}
-
 			Audio.Play(SoundEvent.Collide);
-
-			//Show Menu
-
 		}
 	}
 
@@ -191,11 +177,11 @@ public class PlayerController_LayingDown : MonoBehaviour {
 		}
 		Audio.Play(SoundEvent.Reward);
 
-//		if(score == 1)
-//		{
+		if(score%15 == 0)
+		{
 			haveSwaped = false;
 			StartCoroutine(SwapCameras());
-//		}
+		}
 	}
 	
 	public void MoveRight()

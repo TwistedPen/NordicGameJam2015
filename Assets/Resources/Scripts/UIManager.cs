@@ -63,7 +63,6 @@ public class UIManager : MonoBehaviour {
 
 	public void SwapUI()
 	{
-		Debug.Log("SwapUIBack" + swapBack);
 		if(!swapBack)
 		   {
 			jumpOrgPos = GameObject.Find("Button_jump").GetComponent<RectTransform>();

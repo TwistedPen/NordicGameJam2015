@@ -188,13 +188,13 @@ public class PlayerController : MonoBehaviour {
 		if(!haveSwaped)
 		{
 
-	                fac.StopAnimation();
+	        fac.StopAnimation();
 			GameObject.Find("UI").SendMessage("SwapUI");
 			GameObject.Find("Camera_Portrait_left").SendMessage("Swap");
 			GameObject.Find("Camera_Portrait_top").SendMessage("Swap");
 			yield return new WaitForSeconds(4f);
-			GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
-		        fac.StartAnimation();
+			GameObject.Find("ObjecSpawner").SendMessage("SpawnState", true);
+		    fac.StartAnimation();
 
 			haveSwaped = true;
 			Audio.Play(SoundEvent.Swap);

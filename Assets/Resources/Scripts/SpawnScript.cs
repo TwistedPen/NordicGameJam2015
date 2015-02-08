@@ -28,7 +28,7 @@ public class SpawnScript : MonoBehaviour {
             // chance to rotate the block around the Y-axis(local x-Axis)
             int rotRand = Random.Range(0, 3);
             Quaternion blockRotation;
-            Debug.Log(rotRand);
+           
             if(rotRand >= 1)
                 blockRotation = (transform.rotation * Quaternion.Euler(0, 0, 180));
             else

@@ -40,6 +40,20 @@ public class PlayerController : MonoBehaviour {
 	Vector3 playerVelocity;
 
 
+    // for lane movement
+    lanePos currentLane = lanePos.mid;
+    enum lanePos
+    {
+        left,
+        mid,
+        right
+    };
+
+    const float leftLaneXPos = -1.5f;
+    const float rightLaneXPos = 1.5f;
+    const float midLaneXPos = 0f;
+
+
 	void Start () 
 	{
 		topscoreUI1 = GameObject.Find("Text_TopScore").GetComponent<Text>();
@@ -231,10 +245,19 @@ public class PlayerController : MonoBehaviour {
 	
 	public void MoveRight()
 	{
-		if(transform.position.x < 1f)
+		if(currentLane != lanePos.right)
 		{
 			startMarker = transform.position;
-			endMarker = new Vector3(transform.position.x+1.5f,transform.position.y,transform.position.z);
+            if (currentLane == lanePos.mid)
+            {
+                currentLane = lanePos.right;
+                endMarker = new Vector3(rightLaneXPos, transform.position.y, transform.position.z);
+            }
+            else if (currentLane == lanePos.left)
+            {
+                currentLane = lanePos.mid;
+                endMarker = new Vector3(midLaneXPos, transform.position.y, transform.position.z);
+            }
 			startTime = Time.time;
 			journeyLength = Vector3.Distance(startMarker, endMarker);
 			changingLane = true;
@@ -247,10 +270,19 @@ public class PlayerController : MonoBehaviour {
 	}
 	public void MoveLeft()
 	{
-		if(transform.position.x > -1f)
+        if (currentLane != lanePos.left)
 		{
 			startMarker = transform.position;
-			endMarker = new Vector3(transform.position.x-1.5f,transform.position.y,transform.position.z);
+            if (currentLane == lanePos.mid)
+            {
+                currentLane = lanePos.left;
+                endMarker = new Vector3(leftLaneXPos, transform.position.y, transform.position.z);
+            }
+            else if (currentLane == lanePos.right)
+            {
+                currentLane = lanePos.mid;
+                endMarker = new Vector3(midLaneXPos, transform.position.y, transform.position.z);
+            }
 			startTime = Time.time;
 			journeyLength = Vector3.Distance(startMarker, endMarker);
 			changingLane = true;

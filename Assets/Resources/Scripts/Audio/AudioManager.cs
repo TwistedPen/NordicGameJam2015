@@ -25,6 +25,11 @@ public class AudioManager : MonoBehaviour {
 		audioComponents = GetComponentsInChildren<AudioComponent>();
 	}
 
+	void Start()
+	{
+		if(Application.loadedLevel == 1) Audio.Play(SoundEvent.Restart);
+	}
+
 	public void Play(SoundEvent soundEvent)
 	{
 		foreach(AudioComponent key in audioComponents)
@@ -50,5 +55,6 @@ public enum SoundEvent
 	Collide,
 	Move,
 	Land,
-	Swap
+	Swap,
+	Restart
 }

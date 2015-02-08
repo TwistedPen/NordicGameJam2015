@@ -8,7 +8,12 @@ public class IntroAnimationManager : MonoBehaviour {
 	[SerializeField] private IntroTetrisSpawn tetrisSpawn;
 	[SerializeField] private GameObject ui;
 	[SerializeField] private GameObject smoke;
-	
+
+	void Awake()
+	{
+		Time.timeScale = 1f;
+	}
+
 	void Update()
 	{
 		if (Input.GetMouseButtonDown (0)) 

@@ -10,7 +10,7 @@ public class RandomAudioClip : AudioComponent {
 
 	private AudioSource audioSource;
 
-	void Start()
+	void Awake()
 	{
 		audioSource = audio;
 
@@ -25,7 +25,7 @@ public class RandomAudioClip : AudioComponent {
 		if(audioClips.Length < 1) return;
 
 		int randomClip = Random.Range(0, audioClips.Length);
-	
+
 		if(randomizePitch) audioSource.pitch = Random.Range(minRandomPitch, maxRandomPitch);
 
 		audioSource.PlayOneShot(audioClips[randomClip]);

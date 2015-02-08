@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private FloorAnimationController fac;
 
+	//Cached topscore UI
+	private Text topscoreUI1;
+	private Text topscoreUI2;
+
 	//for gameover
 	bool canControl = true;
 	bool panOut = true;
@@ -35,11 +39,15 @@ public class PlayerController : MonoBehaviour {
 	bool haveSwaped = false;
 	Vector3 playerVelocity;
 
-	// Use this for initialization
-	void Start () {
 
+	void Start () 
+	{
+		topscoreUI1 = GameObject.Find("Text_TopScore").GetComponent<Text>();
+		topscoreUI2 = GameObject.Find("Text_TopScore2").GetComponent<Text>();
+		HandleTopScore();
 	}
-	// Update is called once per frame
+
+
 	void Update () {
 		if(canControl)
 		{
@@ -98,9 +106,26 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine(PanCameras());
 
 			Audio.Play(SoundEvent.Collide);
+
+			HandleTopScore();
 		}
 	}
 
+	void HandleTopScore()
+	{
+		//TOPSCORE
+		int currentTopScore = PlayerPrefs.GetInt("TopScore", 0);
+		if(score > currentTopScore)
+		{
+			currentTopScore = score;
+		}
+
+		PlayerPrefs.SetInt("TopScore", currentTopScore);
+
+		topscoreUI1.text = "Top Score: " + currentTopScore.ToString();
+		topscoreUI2.text = "Top Score: " + currentTopScore.ToString();
+	}
+	
 	void ChangeControlState()
 	{
 		if(canControl)
@@ -131,14 +156,14 @@ public class PlayerController : MonoBehaviour {
         fac.StopAnimation();
 
 		//GameObject.Find("ObjecSpawner_layingDown").SendMessage("ChangeSpawnState");
-		GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
+		GameObject.Find("ObjecSpawner").SendMessage("SpawnState", false);
 
 		if(panOut)
 		{
 			GameObject.Find("Camera_Portrait_left").SendMessage("GameOver");
 			GameObject.Find("Camera_Portrait_top").SendMessage("GameOver");
 
-			yield return new WaitForSeconds(5f);
+			yield return new WaitForSeconds(4f);
 			
 			GameObject.Find("UI").SendMessage("ShowMenu");
 		}
@@ -162,13 +187,15 @@ public class PlayerController : MonoBehaviour {
 
 		if(!haveSwaped)
 		{
-            fac.StopAnimation();
+
+	                fac.StopAnimation();
 			GameObject.Find("UI").SendMessage("SwapUI");
 			GameObject.Find("Camera_Portrait_left").SendMessage("Swap");
 			GameObject.Find("Camera_Portrait_top").SendMessage("Swap");
 			yield return new WaitForSeconds(4f);
 			GameObject.Find("ObjecSpawner").SendMessage("ChangeSpawnState");
-            fac.StartAnimation();
+		        fac.StartAnimation();
+
 			haveSwaped = true;
 			Audio.Play(SoundEvent.Swap);
 			StartCoroutine(SwapCameras());
@@ -190,8 +217,12 @@ public class PlayerController : MonoBehaviour {
 		}
 		Audio.Play(SoundEvent.Reward);
 
-
-		if(score%10 == 0)
+		if(score%10 == 9)
+		{
+			GameObject.Find("Camera_Portrait_left").SendMessage("StartShake");
+			GameObject.Find("Camera_Portrait_top").SendMessage("StartShake");
+		}
+		else if(score%10 == 0)
 		{
 			haveSwaped = false;
 			StartCoroutine(SwapCameras());

@@ -138,6 +138,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   vs: {fileID: 11454140}
+  fac: {fileID: 0}
 --- !u!114 &11461218
 MonoBehaviour:
   m_ObjectHideFlags: 1

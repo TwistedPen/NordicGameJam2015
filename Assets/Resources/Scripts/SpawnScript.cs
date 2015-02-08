@@ -41,9 +41,9 @@ public class SpawnScript : MonoBehaviour {
 				Invoke("Spawn", Random.Range(spawnMin, spawnMax));
 			}
 
-			if(obstaclesSpawned%10 == 0)
+
+		 if(obstaclesSpawned%10 == 0)
 			{
-	
 				canSpawn = false;
 			}
 		}

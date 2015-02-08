@@ -189,8 +189,12 @@ public class PlayerController : MonoBehaviour {
 		}
 		Audio.Play(SoundEvent.Reward);
 
-
-		if(score%10 == 0)
+		if(score%9 == 0)
+		{
+			GameObject.Find("Camera_Portrait_left").SendMessage("StartShake");
+			GameObject.Find("Camera_Portrait_top").SendMessage("StartShake");
+		}
+		else if(score%10 == 0)
 		{
 			haveSwaped = false;
 			StartCoroutine(SwapCameras());
